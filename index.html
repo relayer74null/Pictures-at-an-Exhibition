@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pictures at an Exhibition
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="background-image"></div>
+    <div class="container">
+        <div class="player">
+            <div class="top">
+                <img src="images/cover.jpg" alt="" id="cover">
+                <img src="images/cd.png" alt="" id="cd">
+            </div>
+            <div class="bottom">
+                <div id="songInfo">
+                    <div id="artist">EMERSON, LAKE & PALMER</div>
+                    <div id="title"></div>
+                </div>
+                <div id="rewind">
+                    <div id="currentTime">00:00 / 00:00</div>
+                    <input id="rewindSlider" type="range" min="0" max="" value="0" onchange='changeProgressBar()'>
+                </div>
+                <div class="navButtons">
+                    <img src="images/prev.png" id="prev" onclick="prev()" alt="">
+                    <img src="images/play.png" id="play" onclick="playOrPause()" alt="">
+                    <img src="images/next.png" id="next" onclick="next()" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="slBox">
+            <input id="volumeSlider" type="range" min="0" max="100" value="100" step="1">
+            <input type="text" id="volVal">
+        </div>
+        <div class="linkBox">
+            <div class="wikipedia">
+                <a target="_blank" href="https://en.wikipedia.org/wiki/Pictures_at_an_Exhibition_(Emerson,_Lake_%26_Palmer_album)"><img src="images/wp.png" alt=""></a>
+            </div>
+            <div class="progarchives">
+                <a target="_blank" href="http://www.progarchives.com/album.asp?id=1870"><img src="images/pa.jpg" alt=""></a>
+            </div>
+            <div class="radio">
+                <a target="_blank" href="http://www.vem.am/4956"><img src="images/vem.jpg" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <div class="shadow"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

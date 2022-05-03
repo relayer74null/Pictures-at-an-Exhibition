@@ -1,0 +1,358 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 700;
+}
+
+.container {
+    height: 100vh;
+}
+
+#background-image {
+    position: fixed;
+    left: -25vw;
+    top: -25vh;
+    z-index: 1;
+    display: block;
+    width: 150vw;
+    height: 150vh;
+    background: url("images/cover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-filter: blur(5px) brightness(60%);
+    -moz-filter: blur(5px) brightness(60%);
+    -o-filter: blur(5px) brightness(60%);
+    -ms-filter: blur(5px) brightness(60%);
+    filter: blur(5px) brightness(60%);
+    animation: move 60s infinite;
+}
+
+.player {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    height: 93vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin: 10px;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 4;
+    margin: 10px;
+}
+
+.navButtons img {
+    width: 50px;
+    margin: 30px 16px 0 16px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.navButtons img:hover {
+    transform: translateY(5px);
+}
+
+#artist {
+    font-size: 18pt;
+    text-shadow: 0 0 5px #000;
+    color: #ebebeb;
+}
+
+#title {
+    font-size: 36pt;
+    text-shadow: 0 0 5px #000;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+#currentTime {
+    font-weight: bold;
+    font-size: 36pt;
+    color: #fff;
+    z-index: 2;
+}
+
+#volumeSlider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: calc(100vw - 80px);
+    height: 7vh;
+    outline: none;
+    background-color: #e4b24f;
+    transition: 0.3s;
+    animation: bgc 20s infinite;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 400000;
+}
+
+
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 45vw;
+    height: 7vh;
+    cursor: w-resize;
+    background-color: #fff;
+}
+
+#volVal {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 400000;
+    height: 7vh;
+    color: #000;
+    background-color: #fff;
+    font-family: 'Readex Pro', sans-serif;
+    text-align: center;
+    font-size: 32px;
+    width: 80px;
+    border-left: 5px solid #000 !important;
+}
+
+.slBox{
+    opacity: 0;
+    transition: 0.3s;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100vw;
+    height: 7vh;
+    transition: 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 400000;
+}
+.slBox:hover {
+    opacity: 1;
+}
+
+#cover {
+    width: 50vh;
+    height: 50vh;
+    transition: 1.5s;
+    box-shadow: 0 0 300px 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+}
+
+#cover:hover {
+    transform: translateX(-12.5vh);
+}
+
+#cd {
+    width: 50vh;
+    height: 50vh;
+    z-index: 2;
+    transition: 1.5s;
+    -webkit-filter: drop-shadow(0 0 30px #000000);
+    -moz-filter: drop-shadow(0 0 30px #000000);
+    -o-filter: drop-shadow(0 0 30px #000000);
+    -ms-filter: drop-shadow(0 0 30px #000000);
+    filter: drop-shadow(0 0 30px #000000);
+}
+
+#cover:hover+#cd {
+    transform: translateX(12.5vh) rotate(360deg);
+}
+
+.shadow {
+    box-shadow: 0 0 200px 200px;
+    position: absolute;
+    top: 100vh;
+    z-index: 1;
+    width: 100vw;
+}
+
+
+textarea, input{
+    border: none;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.linkBox{
+    width: 60px;
+    height: 200px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 13px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.linkBox img{
+    width: 52px;
+    border-radius: 13px;
+}
+
+
+#rewindSlider{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    background-color: #ebebeb;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 30%;
+    z-index: 400000;
+    cursor: w-resize;
+}
+#rewindSlider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50px;
+    height: 60px;
+    cursor: w-resize;
+    background-color: #e4b24f;
+    z-index: 500000;
+}
+#rewind{
+    position: relative;
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(0px);
+    }
+
+    20% {
+        transform: translateX(-50px) translateY(-50px);
+    }
+
+    40% {
+        transform: translateX(50px) translateY(-50px);
+    }
+
+    60% {
+        transform: translateX(50px) translateY(50px);
+    }
+
+    80% {
+        transform: translateX(-50px) translateY(50px);
+    }
+
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+/*@keyframes bgc {
+    0% {
+        background-color: #252a27;
+    }
+
+    20% {
+        background-color: #c05f25;
+    }
+
+    40% {
+        background-color: #40a2c6;
+    }
+
+    60% {
+        background-color: #e2a221;
+    }
+
+    80% {
+        background-color: #5ab7d7;
+    }
+
+    100% {
+        background-color: #252a27;
+    }
+}*/
+
+@media only screen and (max-width: 720px) {
+    .linkBox{
+        display: none;
+    }
+    .slBox {
+        display: none;
+    }
+    #artist {
+        font-size: 16pt;
+    }
+
+    #title {
+        font-size: 32pt;
+    }
+
+    #currentTime {
+        font-size: 32pt;
+    }
+    #rewindSlider::-webkit-slider-thumb{
+        height: 53px;
+    }    
+
+
+    .player {
+        height: 100vh;
+    }
+    
+    .navButtons img {
+        width: 40px;
+        margin: 29px 14px 0 14px;
+    }
+
+    .navButtons img:hover {
+        transform: none;
+    }
+
+}
+@media only screen and (max-width: 560px) {
+    #cover:hover {
+        width: 60vw;
+        height: 60vw;
+        transform: translateX(-15vw);
+    }
+
+    #cover:hover+#cd {
+        width: 60vw;
+        height: 60vw;
+        transform: translateX(15vw) rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #cover, #cd {
+        width: 90vw;
+        height: 90vw;
+    }
+}
